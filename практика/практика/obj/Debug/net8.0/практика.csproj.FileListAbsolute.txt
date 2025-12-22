@@ -1,0 +1,4 @@
+C:\Users\User\source\repos\практика\практика\obj\Debug\net8.0\практика.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\source\repos\практика\практика\obj\Debug\net8.0\практика.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\практика\практика\obj\Debug\net8.0\практика.AssemblyInfo.cs
+C:\Users\User\source\repos\практика\практика\obj\Debug\net8.0\практика.csproj.CoreCompileInputs.cache
