@@ -86,16 +86,18 @@ namespace практика
                 Console.WriteLine($"bruh {nameMovie} olready be");
             }
         }
-
+        // доделать метод и сделать ещё два метода
         public void ChangeDescription (string genure)
         {
             Console.Clear();
             Console.WriteLine("Change Description");
 
             var movies = _catolog[genure];
+
+
             if (movies.Count() == 0)
             {
-                Console.WriteLine($"in this catalog no movie}");
+                Console.WriteLine("in this catalog no movie");
                 return;
             }
 
@@ -108,11 +110,57 @@ namespace практика
             {
                 var movie[choise - 1];
 
-                if (string.IsNullOrWhiteSpace (newDescription))
+                if (string.IsNullOrWhiteSpace(newDescription)) { }
             }
         }
+        // доделать метод и сделать selectGenres
+        public void AddMovie()
+        {
+            Console.Clear();
+            Console.WriteLine("=== Add movie ===");
 
+            string title = Console.ReadLine().Trim();
 
+            if (string.IsNullOrWhiteSpace(title))
+            {
+                Console.WriteLine($"bro common this film  really name '{title}'");
+                return;
+            }
+
+            string description = Console.ReadLine().Trim();
+
+            if (string.IsNullOrWhiteSpace(description))
+            {
+                description = "описание отсутствует";
+            }
+            var ganerlist = Console.ReadLine().Split();
+
+            Movy movie;
+            if (_AllMovies.ContainsKey(title))
+            {
+                movie = _AllMovies[title];
+                if (description != "описание отсутствует")
+                {
+                    movie.Opisanie = description;
+                }
+            }
+            else
+            {
+                movie= new Movy { Name = title,Opisanie = description };
+                _AllMovies.Add(title, movie);
+            }
+
+            foreach (var genreIndex in selectGenres)
+            {
+                // доделать gener
+                var Gener = genreIndex[];
+                if (int.TryParse(genreIndex.Trim(), out var index) && index > 0 && index <= ganerlist.Count)
+                {
+                    movie.Junore.Add(gener);
+                }
+            }
+
+        }
         public void WorkWithCatalog()
         {
             Console.Clear();
