@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace практика
 {
-    public class FilmFilter
+    public class 
+        FilmFilter
     {
 
         private Dictionary<string, List<Movy>> _catolog = new Dictionary<string, List<Movy>>();
@@ -33,7 +34,7 @@ namespace практика
             _catolog.Add(jonure, new List<Movy>());
         }
 
-        public void CreateMovie()
+        public void CreateMovie(string jonur)
         {
             string nameMovie = Console.ReadLine();
 
@@ -48,8 +49,69 @@ namespace практика
                 Console.WriteLine("༼ つ ◕_◕ ༽つ yoo bro this movie olready be ");
                 return;
             }
+            string description = Console.ReadLine().Trim();
 
+            if (string.IsNullOrWhiteSpace(nameMovie))
+            {
+                Console.WriteLine($"bruh your description is empty ");
+                return;
+            }
+
+            Movy movie;
+
+            if (_AllMovies.ContainsKey(nameMovie))
+            {
+                movie = _AllMovies[nameMovie];
+                if (description != "описание отсутствует")
+                {
+                    movie.Opisanie = description;
+                }
+            }
+            else 
+            {
+                movie = new Movy { Name = nameMovie,Opisanie = description };
+                _AllMovies.Add(nameMovie, movie);
+            }
+
+            if (!movie.Junore.Contains(jonur))
+            {
+                movie.Junore.Add(jonur);
+            }
+            if (_catolog[jonur].Contains(movie))
+            {
+                _catolog[jonur].Add(movie);
+            }
+            else
+            {
+                Console.WriteLine($"bruh {nameMovie} olready be");
+            }
         }
+
+        public void ChangeDescription (string genure)
+        {
+            Console.Clear();
+            Console.WriteLine("Change Description");
+
+            var movies = _catolog[genure];
+            if (movies.Count() == 0)
+            {
+                Console.WriteLine($"in this catalog no movie}");
+                return;
+            }
+
+            for (int i = 0; i < movies.Count(); i++) 
+            {
+                Console.WriteLine ($"{i+1} {movies[i].Name}");
+            }
+
+            if (int.TryParse(Console.ReadLine(), out int choise) && choise > 0 && choise <= movies.Count) 
+            {
+                var movie[choise - 1];
+
+                if (string.IsNullOrWhiteSpace (newDescription))
+            }
+        }
+
 
         public void WorkWithCatalog()
         {
@@ -96,7 +158,15 @@ namespace практика
 
             if (string.IsNullOrWhiteSpace(name))
             {
-                Console.WriteLine(" ");
+                Console.WriteLine(" alooo name is empty");
+            }
+
+            foreach (var movie in _AllMovies)
+            {
+                if (movie.Value.Equals(name))
+                {
+
+                }
             }
         }
 
